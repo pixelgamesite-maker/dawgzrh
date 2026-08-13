@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { SITE, DAWGZ_IMAGES } from "../content";
+import { SITE } from "../content";
 import { Reveal } from "./Win";
 
 export function ClosingCta({ onApply }: { onApply: () => void }) {
@@ -26,14 +26,7 @@ export function Footer() {
   return (
     <footer style={{ padding: "60px 0 90px", textAlign: "center" }}>
       <div className="wrap">
-        <img
-          src={DAWGZ_IMAGES[0]}
-          alt=""
-          width={56}
-          height={56}
-          style={{ objectFit: "cover", border: "3px solid var(--ink)", boxShadow: "4px 4px 0 rgba(0,0,0,0.5)" }}
-        />
-        <h3 className="h-md" style={{ margin: "16px 0 6px", letterSpacing: "0.06em" }}>DAWGZ</h3>
+        <h3 className="h-md" style={{ margin: "0 0 6px", letterSpacing: "0.06em" }}>DAWGZ</h3>
         <p className="mono muted" style={{ margin: "0 0 24px" }}>
           {SITE.supply} on {SITE.chain}. Backed by {SITE.token}.
         </p>
