@@ -1,7 +1,7 @@
 import { Router as WouterRouter, Route, Switch } from "wouter";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import Home from "@/pages/home";
+import Home from "@/pages/Home";
 
 function App() {
   return (
