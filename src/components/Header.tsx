@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { SITE } from "../content";
+import { SITE, DAWGZ_IMAGES } from "../content";
 
 const NAV: [string, string][] = [
   ["About", "#about"],
@@ -38,7 +38,7 @@ export default function Header({ onApply }: { onApply: () => void }) {
     >
       <a href="#top" style={{ display: "flex", alignItems: "center", gap: 10 }}>
         <img
-          src="/1.jpg"
+          src={DAWGZ_IMAGES[0]}
           alt=""
           width={34}
           height={34}
