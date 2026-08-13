@@ -41,10 +41,14 @@ export default function WhitelistModal({ open, onClose }: { open: boolean; onClo
 
   if (!open) return null;
 
-  const s1 = cleanHandle(d.handle).length > 1;
+  const rawHandleOk = cleanHandle(d.handle).length > 1;
+  const rawQuoteOk = isUrl(d.quoteUrl);
+  const rawWalletOk = isEvm(d.wallet);
+
+  const s1 = d.handleConfirmed && rawHandleOk;
   const s2 = d.liked;
-  const s3 = isUrl(d.quoteUrl);
-  const s4 = isEvm(d.wallet);
+  const s3 = d.quoteConfirmed && rawQuoteOk;
+  const s4 = d.walletConfirmed && rawWalletOk;
   const doneCount = [s1, s2, s3, s4].filter(Boolean).length;
   const ready = doneCount === 4;
 
@@ -153,8 +157,25 @@ export default function WhitelistModal({ open, onClose }: { open: boolean; onClo
                     className="field"
                     placeholder="@yourhandle"
                     value={d.handle}
-                    onChange={(e) => setD({ ...d, handle: e.target.value })}
+                    onChange={(e) => setD({ ...d, handle: e.target.value, handleConfirmed: false })}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" && rawHandleOk) setD((cur) => ({ ...cur, handleConfirmed: true }));
+                    }}
                   />
+                  {!s1 && rawHandleOk && (
+                    <button
+                      className="btn btn--red"
+                      style={{ width: "100%", marginTop: 8, padding: "8px", boxShadow: "3px 3px 0 var(--ink)" }}
+                      onClick={() => setD({ ...d, handleConfirmed: true })}
+                    >
+                      Confirm handle
+                    </button>
+                  )}
+                  {s1 && (
+                    <p className="mono" style={{ margin: "6px 0 0", color: "#1a7a2e" }}>
+                      @{cleanHandle(d.handle)} confirmed
+                    </p>
+                  )}
                 </StepCard>
 
                 {/* 2 — follow + like */}
@@ -186,14 +207,31 @@ export default function WhitelistModal({ open, onClose }: { open: boolean; onClo
                   locked={!s2}
                 >
                   <input
-                    className={`field ${d.quoteUrl && !s3 ? "field--bad" : ""}`}
+                    className={`field ${d.quoteUrl && !rawQuoteOk ? "field--bad" : ""}`}
                     placeholder="https://x.com/you/status/…"
                     value={d.quoteUrl}
-                    onChange={(e) => setD({ ...d, quoteUrl: e.target.value })}
+                    onChange={(e) => setD({ ...d, quoteUrl: e.target.value, quoteConfirmed: false })}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" && rawQuoteOk) setD((cur) => ({ ...cur, quoteConfirmed: true }));
+                    }}
                   />
-                  {d.quoteUrl && !s3 && (
+                  {d.quoteUrl && !rawQuoteOk && (
                     <p className="mono" style={{ margin: "6px 0 0", color: "var(--red)" }}>
                       That isn't a full link. It should start with https://
+                    </p>
+                  )}
+                  {!s3 && rawQuoteOk && (
+                    <button
+                      className="btn btn--red"
+                      style={{ width: "100%", marginTop: 8, padding: "8px", boxShadow: "3px 3px 0 var(--ink)" }}
+                      onClick={() => setD({ ...d, quoteConfirmed: true })}
+                    >
+                      Confirm link
+                    </button>
+                  )}
+                  {s3 && (
+                    <p className="mono" style={{ margin: "6px 0 0", color: "#1a7a2e" }}>
+                      Quote link confirmed
                     </p>
                   )}
                 </StepCard>
@@ -207,14 +245,31 @@ export default function WhitelistModal({ open, onClose }: { open: boolean; onClo
                   locked={!s3}
                 >
                   <input
-                    className={`field ${d.wallet && !s4 ? "field--bad" : ""}`}
+                    className={`field ${d.wallet && !rawWalletOk ? "field--bad" : ""}`}
                     placeholder="0x…"
                     value={d.wallet}
-                    onChange={(e) => setD({ ...d, wallet: e.target.value })}
+                    onChange={(e) => setD({ ...d, wallet: e.target.value, walletConfirmed: false })}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" && rawWalletOk) setD((cur) => ({ ...cur, walletConfirmed: true }));
+                    }}
                   />
-                  {d.wallet && !s4 && (
+                  {d.wallet && !rawWalletOk && (
                     <p className="mono" style={{ margin: "6px 0 0", color: "var(--red)" }}>
                       That address isn't valid. It needs 0x plus 40 characters.
+                    </p>
+                  )}
+                  {!s4 && rawWalletOk && (
+                    <button
+                      className="btn btn--red"
+                      style={{ width: "100%", marginTop: 8, padding: "8px", boxShadow: "3px 3px 0 var(--ink)" }}
+                      onClick={() => setD({ ...d, walletConfirmed: true })}
+                    >
+                      Confirm wallet
+                    </button>
+                  )}
+                  {s4 && (
+                    <p className="mono" style={{ margin: "6px 0 0", color: "#1a7a2e" }}>
+                      Wallet confirmed
                     </p>
                   )}
                 </StepCard>
