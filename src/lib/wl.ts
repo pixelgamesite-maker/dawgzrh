@@ -53,9 +53,20 @@ export type Draft = {
   wallet: string;
   quoteUrl: string;
   liked: boolean;
+  handleConfirmed: boolean;
+  quoteConfirmed: boolean;
+  walletConfirmed: boolean;
 };
 
-export const emptyDraft: Draft = { handle: "", wallet: "", quoteUrl: "", liked: false };
+export const emptyDraft: Draft = {
+  handle: "",
+  wallet: "",
+  quoteUrl: "",
+  liked: false,
+  handleConfirmed: false,
+  quoteConfirmed: false,
+  walletConfirmed: false,
+};
 
 export function loadDraft(): Draft {
   try {
