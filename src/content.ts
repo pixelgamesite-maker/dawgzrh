@@ -51,8 +51,6 @@ export const BREEDS = [
   { name: "Strays",    desc: "Base model. Still meaner than your dog.",              img: DAWGZ_IMAGES[0] },
   { name: "Show Dawgz", desc: "Groomed, accessorized, insufferable about it.",       img: DAWGZ_IMAGES[1] },
   { name: "Junkyard",  desc: "Loud traits, worse combinations, no supervision.",     img: DAWGZ_IMAGES[2] },
-  { name: "Kennel Bosses", desc: "Rare. You'll know one when it scrolls past.",      img: DAWGZ_IMAGES[0] },
-  { name: "Originals", desc: "The first litter. Deepest tie to $DAWGZ.",             img: DAWGZ_IMAGES[1] },
 ];
 
 export const SYSTEMS = [
