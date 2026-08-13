@@ -37,6 +37,7 @@ export default function Hero({ onApply }: { onApply: () => void }) {
       {/* floating desktop junk — parallax */}
       <div
         aria-hidden
+        className="float hero-float"
         style={{
           position: "absolute",
           top: "14%",
@@ -47,7 +48,6 @@ export default function Hero({ onApply }: { onApply: () => void }) {
           zIndex: 0,
           opacity: 0.95,
         }}
-        className="float"
       >
         <Win title="System message" tone="dim">
           <p className="mono" style={{ margin: "6px 0 16px", fontSize: 17 }}>
@@ -62,6 +62,7 @@ export default function Hero({ onApply }: { onApply: () => void }) {
 
       <div
         aria-hidden
+        className="hero-float"
         style={{
           position: "absolute",
           bottom: "12%",
@@ -81,8 +82,17 @@ export default function Hero({ onApply }: { onApply: () => void }) {
         </Win>
       </div>
 
-      <div className="wrap" style={{ position: "relative", zIndex: 2, textAlign: "center" }}>
-        <p className="mono" style={{ ...anim(0.05), color: "var(--yellow)", letterSpacing: "0.2em", margin: "0 0 18px" }}>
+      <div className="wrap" style={{ position: "relative", zIndex: 2, textAlign: "center", minWidth: 0 }}>
+        <p
+          className="mono"
+          style={{
+            ...anim(0.05),
+            color: "var(--yellow)",
+            letterSpacing: "clamp(0.06em, 1.6vw, 0.2em)",
+            margin: "0 0 18px",
+            overflowWrap: "break-word",
+          }}
+        >
           {SITE.supply} ON {SITE.chain.toUpperCase()}
         </p>
 
@@ -97,7 +107,8 @@ export default function Hero({ onApply }: { onApply: () => void }) {
             maxWidth: 520,
             margin: "26px auto 0",
             fontFamily: "var(--pixel)",
-            fontSize: 19,
+            fontSize: "clamp(15px, 4vw, 19px)",
+            overflowWrap: "break-word",
           }}
         >
           {SITE.tagline} Backed by {SITE.token}. No leash, no roadmap theatre, no apologies.
@@ -126,7 +137,7 @@ export default function Hero({ onApply }: { onApply: () => void }) {
           style={{
             ...anim(0.4),
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit,minmax(140px,1fr))",
+            gridTemplateColumns: "repeat(auto-fit,minmax(min(140px,100%),1fr))",
             gap: 6,
             maxWidth: 720,
             margin: "52px auto 0",
