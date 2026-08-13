@@ -4,12 +4,12 @@ export const SITE = {
   name: "DAWGZ",
   token: "$DAWGZ",
   chain: "Robinhood Chain",
-  supply: "10,000",
-  price: "0.005 ETH",
-  tagline: "10,000 dawgz off the leash on Robinhood Chain.",
+  supply: "4000",
+  price: "TBA",
+  tagline: "4000 dawgz off the leash on Robinhood Chain.",
   x: "https://x.com/dawgz",
   pinnedPost: "https://x.com/dawgz/status/1",
-  marketplace: "#",
+  marketplace: "OpenSea",
   origin: "https://dawgz.xyz", // used to build referral links
 };
 
@@ -21,7 +21,7 @@ export const TICKER = [
   "you don't exist",
   "$DAWGZ",
   "no roadmap, only dawgz",
-  "10,000 on Robinhood Chain",
+  "4000 on Robinhood Chain",
   "judging you",
   "error 999",
   "off the leash",
@@ -35,7 +35,7 @@ export const ABOUT = {
     "The collection is backed by $DAWGZ, and it lives on Robinhood Chain — fast, cheap, and close to the people who actually trade this stuff.",
   ],
   stats: [
-    ["10,000", "Dawgz"],
+    ["4000", "Dawgz"],
     ["Robinhood", "Chain"],
     ["$DAWGZ", "Backed by"],
     ["1", "Per wallet"],
@@ -69,7 +69,7 @@ export const ROADMAP = [
 ];
 
 export const FAQS = [
-  { q: "What is DAWGZ?",              a: "10,000 collaged bulldog NFTs on Robinhood Chain, backed by $DAWGZ." },
+  { q: "What is DAWGZ?",              a: "4000 collaged bulldog NFTs on Robinhood Chain, backed by $DAWGZ." },
   { q: "What chain?",                 a: "Robinhood Chain." },
   { q: "What's the mint price?",      a: SITE.price },
   { q: "How do I get on the list?",   a: "Complete the four steps in the whitelist application. Referrals move you up." },
