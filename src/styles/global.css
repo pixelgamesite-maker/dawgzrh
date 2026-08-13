@@ -23,6 +23,8 @@
 
 html { scroll-behavior: smooth; }
 
+html, body { overflow-x: hidden; max-width: 100vw; }
+
 body {
   margin: 0;
   font-family: var(--body);
@@ -273,6 +275,8 @@ h1, h2, h3 { font-family: var(--display); font-weight: 400; margin: 0; }
 
 @media (max-width: 640px) {
   .taskbar__slot { display: none; }
+  /* decorative floating popups crowd the hero on narrow screens */
+  .hero-float { display: none; }
 }
 
 /* ── reduced motion ───────────────────────────────────── */
