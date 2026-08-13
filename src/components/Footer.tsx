@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { SITE } from "../content";
+import { SITE, DAWGZ_IMAGES } from "../content";
 import { Reveal } from "./Win";
 
 export function ClosingCta({ onApply }: { onApply: () => void }) {
@@ -27,7 +27,7 @@ export function Footer() {
     <footer style={{ padding: "60px 0 90px", textAlign: "center" }}>
       <div className="wrap">
         <img
-          src="/1.jpg"
+          src={DAWGZ_IMAGES[0]}
           alt=""
           width={56}
           height={56}
