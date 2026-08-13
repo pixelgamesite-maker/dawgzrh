@@ -14,7 +14,7 @@ export const SITE = {
 };
 
 export const DAWGZ_IMAGES = [
-  "/1.jpg", "/2.jpg", "/3.jpg",
+  "/dawgz-1.jpg", "/dawgz-2.jpg", "/dawgz-3.jpg",
 ];
 
 export const TICKER = [
@@ -48,11 +48,11 @@ export const TRAITS = [
 ];
 
 export const BREEDS = [
-  { name: "Strays",    desc: "Base model. Still meaner than your dog.",              img: "/1.jpg" },
-  { name: "Show Dawgz", desc: "Groomed, accessorized, insufferable about it.",       img: "/2.jpg" },
-  { name: "Junkyard",  desc: "Loud traits, worse combinations, no supervision.",     img: "/3.jpg" },
-  { name: "Kennel Bosses", desc: "Rare. You'll know one when it scrolls past.",      img: "/1.jpg" },
-  { name: "Originals", desc: "The first litter. Deepest tie to $DAWGZ.",             img: "/2.jpg" },
+  { name: "Strays",    desc: "Base model. Still meaner than your dog.",              img: DAWGZ_IMAGES[0] },
+  { name: "Show Dawgz", desc: "Groomed, accessorized, insufferable about it.",       img: DAWGZ_IMAGES[1] },
+  { name: "Junkyard",  desc: "Loud traits, worse combinations, no supervision.",     img: DAWGZ_IMAGES[2] },
+  { name: "Kennel Bosses", desc: "Rare. You'll know one when it scrolls past.",      img: DAWGZ_IMAGES[0] },
+  { name: "Originals", desc: "The first litter. Deepest tie to $DAWGZ.",             img: DAWGZ_IMAGES[1] },
 ];
 
 export const SYSTEMS = [
