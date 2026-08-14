@@ -14,7 +14,7 @@ export const SITE = {
 };
 
 export const DAWGZ_IMAGES = [
-  "/dawgz-1.jpg", "/dawgz-2.jpg", "/dawgz-3.jpg",
+  "/dawgz-1.jpg", "/dawgz-2.jpg", "/dawgz-3.jpg", "/dawgz-4.jpg", "/dawgz-5.jpg", "/dawgz-6.jpg",
 ];
 
 export const TICKER = [
